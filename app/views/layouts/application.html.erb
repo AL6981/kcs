@@ -5,28 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= javascript_include_tag "vendor/modernizr" %>
-
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Keith's Custom Seats</a></h1>
-      </li>
-    </ul>
+  <div class="top-bar stacked-for-medium">
+    <div class="top-bar-left title-area">
+      <h4><a href="/">Keith's Custom Seats</a></h4>
+    </div>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <li><%= link_to 'Home', destroy_user_session_path %></li>
-        <li><%= link_to 'About', new_user_registration_path %></li>
-        <li><%= link_to 'Gallery', new_user_session_path %></li>
-        <li><%= link_to 'Contact', new_user_session_path %></li>
-      </ul>
+    <section class="top-bar stacked-for-medium">
+      <div class="top-bar-right">
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'About', about_index_path %>
+        <%= link_to 'Gallery', gallery_index_path %>
+        <%= link_to 'Contact', contact_index_path %>
+      </div>
     </section>
-  </nav>
+  </div>
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
@@ -45,6 +41,14 @@
   <%- end -%>
   <%= javascript_pack_tag 'application' %>
 
+  <section class="bottom-bar">
+    <div class="bottom-bar">
+      <%= link_to 'About', about_index_path %>
+      <%= link_to 'Gallery', gallery_index_path %>
+      <%= link_to 'Contact', contact_index_path %>
+    </div>
+  </section>
   <%= yield :extra_footer %>
+
 </body>
 </html>
